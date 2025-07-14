@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+</head>
+<body>
+  <h1>Test</h1>
+  <main>
+    {% if question_data %}
+      <h3>{{question_data.subject}}: {{question_data.topic}}</h3>
+
+      <h5>{{question_data.question}}</h5>
+
+      <form>
+        {% for option in question_data.options %}
+          <label>
+            <input type="radio" name="choice" value="{{ forloop.counter0 }}"> {{ option }}
+          </label>
+        {% endfor %}
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+
+    {% else %}
+      <p>Sorry, we could not generate a question at this timw. Please try refreshing the page.</p>
+    {% endif %}
+    
+
+    <!-- <h5>Question</h5>
+    <input type="radio"name="choice"value="option1">Option 1
+    <input type="radio"name="choice"value="option2">Option 2
+    <input type="radio"name="choice"value="option3">Option 3
+    <input type="radio"name="choice"value="option4">Option 4
+    <button type="submit">Submit</button> -->
+
+  </main>
+</body>
+</html>
